@@ -1,0 +1,48 @@
+//Reusalbility
+package parameterization;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import configuration.PathConfiguration;
+
+public class FBAutomation {
+	
+	public static void main(String[] args) throws InterruptedException, EncryptedDocumentException, IOException {
+		System.setProperty("webdriver.chrome.driver", PathConfiguration.driverPath);
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get(PathConfiguration.appUrl);
+		Thread.sleep(2000);
+		
+		FBAutomation fb = new FBAutomation();
+		
+		
+		driver.findElement(By.xpath("//input[@name='firstname']")).sendKeys(fb.readExcel(0, 0));
+		
+		driver.findElement(By.xpath("//input[@name='lastname']")).sendKeys(fb.readExcel(0, 1));
+	
+	}
+	
+	
+	//excel sheet read
+	public String readExcel(int a, int b) throws EncryptedDocumentException, IOException {
+		
+		FileInputStream file = new FileInputStream(PathConfiguration.excelPath);		
+		Sheet sheet1 = WorkbookFactory.create(file).getSheet("Sheet1");
+		String data = sheet1.getRow(0).getCell(1).getStringCellValue();
+		System.out.println(data);
+		
+		return data;
+	}
+	
+}
+
