@@ -1,0 +1,88 @@
+public class Str1 {
+	public static void main(String[] args) {
+		
+	String s="Selenium";
+	System.out.println(s.toUpperCase()); // Convert to upper
+	System.out.println(s.toLowerCase()); //Covert to lowe case
+	System.out.println(s.charAt(7)) ;    //get char at index
+	System.out.println(s.indexOf("e"));	 //Get index of character-> 7
+	System.out.println(s.lastIndexOf("e")); //get idex if char appering twice
+	System.out.println(s.startsWith("s"));  //fale
+	System.out.println(s.contains("eel"));  //false
+	System.out.println(s.startsWith("Se")); //ture
+		
+		
+		System.out.println(s.substring(0,4)); //Sele
+	
+          //Assignment: print in reverse	
+
+	
+		
+		
+	}
+	
+
+}
+
+
+public class Str2 {
+	
+	public static void main(String[] args) {
+		String s1= "Velocity";
+		String s2="abcd";
+		String s3="ABCD";
+		String s4="abcdefghji";
+		String s5="abcd efg hi";
+		
+//		System.out.println(s2.length());     //8
+//		System.out.println(s2.isEmpty());   //false
+//		System.out.println(s1.substring(3)); //to get string 4th index onwards : ocity
+//		System.out.println(s2.equals(s3));   // false
+//		System.out.println(s2.equalsIgnoreCase(s3)); //ture
+//		System.out.println(s4.contains(s3));   //true
+		System.out.println();
+		
+		
+	}
+
+}
+
+public class Str2 {
+	
+	public static void main(String[] args) {
+		String s1= "Velocity";
+		String s2="abcd";
+		String s3="ABCDCCCCCD";
+		String s4="abcdefghji";
+		String s5="abcd efg hi";
+		
+//		System.out.println(s1.concat(s3));	//VelocityABCDCCCCCD		
+//		String[] idx = s5.split(" ");
+//		System.out.println(idx[0]);	//abcd	
+//		System.out.println(idx[1]); //efg
+//		System.out.println(idx[2]);  //hi	
+//		System.out.println(	s3.replace("C", "Z"));  //ABZDZZZZZD
+
+		//Assignment: swap the word 
+		
+	}
+
+}
+
+public class Str3 {
+
+	
+	public static void main(String[] args) {
+		
+	String	s1="ABCDEFGHI";
+	
+	for (int i = s1.length()-1; i>=0 ; i--) {
+		System.out.print(s1.charAt(i));
+	}
+	
+	
+	}
+}
+
+
+
