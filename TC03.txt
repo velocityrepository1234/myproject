@@ -1,0 +1,160 @@
+//TC03 automation code added
+
+
+
+Demo file for test case is added on 27 nov 2021
+
+package parameterization;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+import configuration.PathConfiguration;
+
+public class ExcelSheetRead1 {
+	public static void main(String[] args) throws EncryptedDocumentException, IOException {
+		
+		FileInputStream file = new FileInputStream(PathConfiguration.excelPath);
+		
+		Sheet sheet1 = WorkbookFactory.create(file).getSheet("Sheet1");
+		
+		String str = sheet1.getRow(0).getCell(0).getStringCellValue();
+		
+		String str1 = sheet1.getRow(0).getCell(1).getStringCellValue();
+		
+		String str2 = sheet1.getRow(1).getCell(0).getStringCellValue();
+		
+		String str3 = sheet1.getRow(1).getCell(1).getStringCellValue();
+		
+		System.out.println(str);
+		System.out.println(str1);
+		System.out.println(str2);
+		System.out.println(str3);
+		
+	}
+
+}
+package parameterization;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+import configuration.PathConfiguration;
+
+public class ExcelSheetRead1 {
+	public static void main(String[] args) throws EncryptedDocumentException, IOException {
+		
+		FileInputStream file = new FileInputStream(PathConfiguration.excelPath);
+		
+		Sheet sheet1 = WorkbookFactory.create(file).getSheet("Sheet1");
+		
+	    long a = (long) sheet1.getRow(0).getCell(0).getNumericCellValue();
+		
+		long  b = (long) sheet1.getRow(0).getCell(1).getNumericCellValue();
+		
+		long c = (long) sheet1.getRow(1).getCell(0).getNumericCellValue();
+		
+		long d = (long) sheet1.getRow(1).getCell(1).getNumericCellValue();
+		
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(c);
+		System.out.println(d);	
+				
+		
+		
+	}
+
+}
+
+package parameterization;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+import configuration.PathConfiguration;
+
+public class ExcelSheetRead1 {
+	public static void main(String[] args) throws EncryptedDocumentException, IOException {
+		
+FileInputStream file = new FileInputStream(PathConfiguration.excelPath);
+		
+Sheet sheet1 = WorkbookFactory.create(file).getSheet("Sheet1");
+		
+
+
+//To read column from excel sheet
+		
+		for (int i=0; i<=3; i++) {
+			String col = sheet1.getRow(i).getCell(1).getStringCellValue();
+			System.out.println(col);
+		}
+		
+	}
+
+}
+
+////-------------------------------------
+//Reusalbility
+package parameterization;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import configuration.PathConfiguration;
+
+public class FBAutomation {
+	
+	public static void main(String[] args) throws InterruptedException, EncryptedDocumentException, IOException {
+		System.setProperty("webdriver.chrome.driver", PathConfiguration.driverPath);
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get(PathConfiguration.appUrl);
+		Thread.sleep(2000);
+		
+		FBAutomation fb = new FBAutomation();
+		
+		
+		driver.findElement(By.xpath("//input[@name='firstname']")).sendKeys(fb.readExcel(0, 0));
+		
+		driver.findElement(By.xpath("//input[@name='lastname']")).sendKeys(fb.readExcel(0, 1));
+	
+	}
+	
+	
+	//excel sheet read
+	public String readExcel(int a, int b) throws EncryptedDocumentException, IOException {
+		
+		FileInputStream file = new FileInputStream(PathConfiguration.excelPath);		
+		Sheet sheet1 = WorkbookFactory.create(file).getSheet("Sheet1");
+		String data = sheet1.getRow(0).getCell(1).getStringCellValue();
+		System.out.println(data);
+		
+		return data;
+	}
+	
+}
+
