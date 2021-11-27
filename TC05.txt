@@ -1,0 +1,279 @@
+This is just a demoString:
+-	String is Non-primitive data type memory size of string is not fixed.
+-	String is use to store the collection of characters.
+-	Object creation of string is done in two ways:
+1. Without using new keyword
+2. Using new keyword
+-	String object are store inside string pool area which is present inside heap area.
+String pool area:
+-It use to store the string object,  string pool area is classified into two types.
+1.  Constant pool area
+2. Non-constant pool area.
+- During the object creation time if you don’t make use of new keyword then object creation takes place inside constant pool area.
+- Duplicates are not allowed in constant pool area.
+- During the object creation time if you use new keyword then object creation takes place inside non-constant pool area.
+- Duplicates are allowed inside non-constant pool area. 
+
+
+
+ 
+
+S	e	l	e	n	i	u	m
+0	1	2	3	4	5	6	7
+
+public class Str1 {
+	public static void main(String[] args) {
+		
+	String s="Selenium";
+	System.out.println(s.toUpperCase()); // Convert to upper
+	System.out.println(s.toLowerCase()); //Covert to lowe case
+	System.out.println(s.charAt(7)) ;    //get char at index
+	System.out.println(s.indexOf("e"));	 //Get index of character-> 7
+	System.out.println(s.lastIndexOf("e")); //get idex if char appering twice
+	System.out.println(s.startsWith("s"));  //fale
+	System.out.println(s.contains("eel"));  //false
+	System.out.println(s.startsWith("Se")); //ture
+		
+		
+		System.out.println(s.substring(0,4)); //Sele
+	
+          //Assignment: print in reverse	
+
+	
+		
+		
+	}
+	
+
+}
+
+
+public class Str2 {
+	
+	public static void main(String[] args) {
+		String s1= "Velocity";
+		String s2="abcd";
+		String s3="ABCD";
+		String s4="abcdefghji";
+		String s5="abcd efg hi";
+		
+//		System.out.println(s2.length());     //8
+//		System.out.println(s2.isEmpty());   //false
+//		System.out.println(s1.substring(3)); //to get string 4th index onwards : ocity
+//		System.out.println(s2.equals(s3));   // false
+//		System.out.println(s2.equalsIgnoreCase(s3)); //ture
+//		System.out.println(s4.contains(s3));   //true
+		System.out.println();
+		
+		
+	}
+
+}
+
+public class Str2 {
+	
+	public static void main(String[] args) {
+		String s1= "Velocity";
+		String s2="abcd";
+		String s3="ABCDCCCCCD";
+		String s4="abcdefghji";
+		String s5="abcd efg hi";
+		
+//		System.out.println(s1.concat(s3));	//VelocityABCDCCCCCD		
+//		String[] idx = s5.split(" ");
+//		System.out.println(idx[0]);	//abcd	
+//		System.out.println(idx[1]); //efg
+//		System.out.println(idx[2]);  //hi	
+//		System.out.println(	s3.replace("C", "Z"));  //ABZDZZZZZD
+
+		//Assignment: swap the word 
+		
+	}
+
+}
+
+public class Str3 {
+
+	
+	public static void main(String[] args) {
+		
+	String	s1="ABCDEFGHI";
+	
+	for (int i = s1.length()-1; i>=0 ; i--) {
+		System.out.print(s1.charAt(i));
+	}
+	
+	
+	}
+}
+
+
+
+Array: 
+-Array is data structure use to store collection of information
+-Array is homogeneous in nature (similar type of information can be stored).
+-Array declaration need to be done with capacity.
+
+Ramesh	Dinesh	Ganesh	Ganesh	Ganesh
+   0			1			2			3			4
+
+
+-Array is not grow able in size 
+-Array is noting but an object inside object array index will be preset.
+-Array always starts from zero index.
+
+public class Str5 {
+	public static void main(String[] args) {
+		
+		//Declaration
+		int ar[] = new int [5]; 
+		
+		//Initialization
+		ar[0]=100;
+		ar[1]=888;
+		ar[2]=66;
+		ar[3]=77;
+		ar[4]=22;
+		
+		// Usage
+		for (int i=0; i<=4; i++) {
+		System.out.println(ar[i]);
+		}
+			
+	}
+
+}
+
+public class Str5 {
+	public static void main(String[] args) {
+		
+		//Declaration
+		int ar[] = new int [5]; 
+		
+		//Initialization
+		ar[0]=22;
+		ar[1]=45;
+		ar[2]=23;
+		ar[3]=77;
+		ar[4]=28;
+		
+		System.out.println("Original Array");
+		for (int i=0; i<=4; i++) {
+		System.out.println(ar[i]);
+		}
+		
+		System.out.println("Ascending order array");
+		
+		Arrays.sort(ar);  //Array ascending order funcation
+		
+		//Ascending order	
+		for (int i=0; i<=4; i++) {
+		System.out.println(ar[i]);
+		}
+		
+		System.out.println("Descending order array");
+		
+		//Descending order
+		for (int i=4; i>=0; i--) {
+			System.out.println(ar[i]);
+			}	
+	}
+
+}
+public class Str6 {
+	public static void main(String[] args) {
+		//Declaration and initialization together
+		int ar[]= {11,33,88,99,44,55};
+		
+		
+		System.out.println(ar.length);
+		
+		System.out.println("Original Array");
+		for (int i=0; i<=5; i++) {
+		System.out.println(ar[i]);
+		}
+		
+		
+	}
+
+}
+
+
+public class Str7 {
+	
+	public static void main(String[] args) {
+		String s="Ramesh Suresh";
+		
+              String[] strIndex = s.split(" ");       
+            
+              System.out.println(strIndex[1]+ " "+strIndex[0]);
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Exception:
+- During execution of java program JVM faces abnormal situation based on code declaration.
+-If JVM faces abnormal situation then JVM trigger an event this event is known as exception.
+If exception even got generated in java program then it results in termination of java program
+
+Exception Handling:
+Handling the event generated by jvm during the program execution is known as exception handling.
+-We can handle such exception by using try and catch block.
+		try {
+		//Write here risky code	
+			
+		} 
+		catch (Exception referenceVarible) {
+			
+
+		}
+
+Try block:
+-It is use to declare risky code.
+-Controller will visit inside the try block only once throughout the lifetime of program.
+-try block should be followed either catch block or finally bock.
+-Multiple try blocks are not allowed.
+Catch:
+-It is use to handel event generated from try block.
+-catch block will get executed only if event generated in try block.
+Ex:
+public class Test {
+
+	public static void main(String[] args) {
+		int a = 10;
+		int b = 0;
+
+		try {
+			// Write here risky code
+			int c = a / b;
+			System.out.println("try blocllkfasf");
+
+		} catch (Exception e) {
+			System.out.println("Exception Handel");
+			e.printStackTrace();
+
+		}
+
+		System.out.println("End of program");
+
+	}
+
+}
+
